@@ -43,24 +43,28 @@ class DatabaseSeeder extends Seeder
 
         Product::factory()->create([
             'name' => 'OK Computer - Radiohead',
+            'image' => 'https://m.media-amazon.com/images/I/715LZJ5qX0L._UF1000,1000_QL80_.jpg',
             'category_id' => 1,
             'price' => 9.99,
             'stock' => 10,
         ]);
         Product::factory()->create([
             'name' => 'Vespertine - Bjork',
+            'image' => 'https://monkeybuzz.com.br/wp-content/uploads/2019/06/bjork-vespertine.jpg',
             'category_id' => 2,
             'price' => 14.99,
             'stock' => 25,
         ]);
         Product::factory()->create([
             'name' => 'Melodrama - Lorde',
+            'image' => 'https://m.media-amazon.com/images/I/71fwgxq0wML._UF1000,1000_QL80_.jpg',
             'category_id' => 3,
             'price' => 14.99,
             'stock' => 5,
         ]);
         Product::factory()->create([
             'name' => '7G - A. G. Cook',
+            'image' => 'https://upload.wikimedia.org/wikipedia/en/6/68/A._G._Cook_-_7G.jpg',
             'category_id' => 4,
             'price' => 20.99,
             'stock' => 15,
