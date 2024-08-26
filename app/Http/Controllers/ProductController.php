@@ -13,8 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('home.index', [
-            'products' => DB::table('products')->orderBy('name')->paginate(5),
+        $products = Product::with('category')->orderBy('name')->paginate(5);
+        return view('records.index', [
+            'products' => $products
         ]);
     }
 
