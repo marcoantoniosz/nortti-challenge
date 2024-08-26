@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->references('id')->on('products');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->integer('quantity');
+            $table->decimal('total', 8, 2);
             $table->timestamps();
         });
     }
