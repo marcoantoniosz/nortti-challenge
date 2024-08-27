@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->orderBy('name')->paginate(5);
-        return view('records.index', [
+        return view('products.index', [
             'products' => $products
         ]);
     }
@@ -38,17 +38,27 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        return view('products.show', [
+            'product' => Product::findOrFail($id),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        if ($product->stock <= 0) {
+            return redirect()->back()->with('error', 'Product out of stock');
+        };
+
+        $product->stock = $product->stock - 1;
+        $product->save();
+        return redirect()->route('home');
     }
 
     /**

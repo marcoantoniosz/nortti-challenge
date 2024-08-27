@@ -13,7 +13,7 @@
                 </div>
                 <div class="inline-grid grid-cols-3 gap-5 p-6 text-gray-900 dark:text-gray-100">
                     @foreach ($products as $product)
-                    <div class=" bg-teal-600 max-w-sm rounded overflow-hidden shadow-lg">
+                    <a href="{{ route('product.show', $product->id) }}" class="bg-teal-600     max-w-sm rounded overflow-hidden shadow-lg">
                         <img class="w-full" src="{{ $product->image }}" alt="Sunset in the mountains">
                         <div class="px-6 py-4">
                             <div class="font-bold text-xl mb-2">{{ $product->name }} </div>
@@ -25,7 +25,7 @@
                             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{
                                 $product->category->name }}</span>
                         </div>
-                    </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
